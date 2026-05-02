@@ -1,0 +1,75 @@
+<div>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <div class="w100">
+        <mat-tab-group>
+          <mat-tab label="Source">
+            <ngx-json-viewer [json]="_data"></ngx-json-viewer>
+          </mat-tab>
+          <mat-tab label="Properties">
+            <div class="flex-g-30">
+              <div>
+                <form [formGroup]="form">
+                  <mat-form-field>
+                    <mat-label>Guides ({{ guides.length }})</mat-label>
+                    <mat-select formControlName="guides" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search
+                          formControlName="guideFilterCtrl"
+                        ></ngx-mat-select-search>
+                      </mat-option>
+                      @for (guide of filteredGuides | async; track guide.apiName) {
+                      <mat-option [value]="guide.apiName">{{
+                        guide.displayName
+                      }}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="separator"></div>
+                  <mat-form-field>
+                    <mat-label>Languages ({{ languages.length }})</mat-label>
+                    <mat-select [formControl]="_languages">
+                      @for (language of languages; track language.id) {
+                      <mat-option [value]="language.id">{{
+                        language.name
+                      }}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="separator"></div>
+                  <mat-form-field>
+                    <mat-label
+                      >Display Groups ({{ displaygroups.length }})</mat-label
+                    >
+                    <mat-select [formControl]="_displaygroups">
+                      @for (displaygroup of displaygroups; track displaygroup.id)
+                      {
+                      <mat-option [value]="displaygroup.id">{{
+                        displaygroup.name
+                      }}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="separator"></div>
+                  <mat-form-field>
+                    <mat-label>Guides ({{ guides_d.length }})</mat-label>
+                    <mat-select [formControl]="_guides_d">
+                      @for (guide of guides_d; track guide.apiName) {
+                      <mat-option [value]="guide.apiName">{{
+                        guide.displayName
+                      }}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+              <div class="w100">
+                <ngx-json-viewer [json]="reqs()"></ngx-json-viewer>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,86 @@
+<div>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <div class="w100">
+        <mat-tab-group>
+          <mat-tab label="Source">
+            <div>
+              <ngx-json-viewer [json]="_data"></ngx-json-viewer>
+            </div>
+          </mat-tab>
+          <mat-tab label="Properties">
+            <mat-tab-group>
+              <mat-tab label="Properties">
+                <div>
+                  <div>
+                    <!--<mat-form-field>
+                        <mat-label>Selector</mat-label>
+                        <input matInput [formControl]="selector" />
+                    </mat-form-field>-->
+                    <mat-form-field>
+                        <mat-label>Conditions</mat-label>
+                        <textarea matInput [formControl]="conditions" 
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="1"
+                        cdkAutosizeMaxRows="10"></textarea>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button (click)="copyTitle()">ApiName: {{this.extra?.apiName}}</button>
+                    </div>
+                    <div>
+                      <button mat-button (click)="jobAid()">Job Aid</button>
+                    </div>
+                    <div>
+                      <button mat-button [cdkCopyToClipboard]="__data()" (cdkCopyToClipboardCopied)="onClipboardCopy($event)">Copy source</button>
+                    </div>
+                    <div>
+                      <button mat-button (click)="export()">Export</button>
+                    </div>
+                    <div>
+                      <button mat-button (click)="video()">Video</button>
+                    </div>
+                    <div>
+                      <button mat-button (click)="simulation()">Simulation</button>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="Steps">
+                <div class="flex-g-30">
+                  <div>
+                    <div>
+                      @if(steps){
+                        <mat-form-field>
+                          <mat-label>Step</mat-label>
+                          <mat-select [formControl]="_steps">
+                            @for (step of steps; track step) {
+                              <mat-option [value]="step.uid || step.id">{{
+                                step.id
+                              }}</mat-option>
+                            }
+                          </mat-select>
+                        </mat-form-field>
+                      }
+                    </div>
+                    <div>
+                      <button mat-button [cdkCopyToClipboard]="__step()" (cdkCopyToClipboardCopied)="onClipboardCopy($event)">Copy step</button>
+                    </div>
+                  </div>
+                  <div class="w100">
+                    <ngx-json-viewer [json]="step"></ngx-json-viewer>
+                  </div>
+                  <div>
+                    <div>
+                      <img [src]="screenshot" style="zoom:25%"/>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

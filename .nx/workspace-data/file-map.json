@@ -1,0 +1,554 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.5.3",
+  "pathMappings": {
+    "lib": [
+      "./dist/lib"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "ogl-viewer": [
+        {
+          "file": ".editorconfig",
+          "hash": "6686520031028425313"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "3844775360852818152"
+        },
+        {
+          "file": ".npmrc",
+          "hash": "6355693326881032845"
+        },
+        {
+          "file": ".prettierignore",
+          "hash": "16448050467312557263"
+        },
+        {
+          "file": ".prettierrc",
+          "hash": "16267754514737964994"
+        },
+        {
+          "file": ".storybook/main.ts",
+          "hash": "17458534927074060610",
+          "deps": [
+            "npm:@storybook/angular"
+          ]
+        },
+        {
+          "file": ".storybook/preview.ts",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": ".storybook/tsconfig.json",
+          "hash": "4016727726074760398"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "12577044999726540728"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "17038929134016848735"
+        },
+        {
+          "file": ".vscode/settings.json",
+          "hash": "4748908159742067723"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "5336636969995539451"
+        },
+        {
+          "file": "AGENTS.md",
+          "hash": "5238701747125998364"
+        },
+        {
+          "file": "README.md",
+          "hash": "13673582018186956081"
+        },
+        {
+          "file": "migrations.json",
+          "hash": "16626743225165661779"
+        },
+        {
+          "file": "nx.json",
+          "hash": "8731285587019196088"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "15030424279685066843"
+        },
+        {
+          "file": "package.json",
+          "hash": "10752059185304509899"
+        },
+        {
+          "file": "project.json",
+          "hash": "17100924023378356580"
+        },
+        {
+          "file": "server.cert",
+          "hash": "644311624373406120"
+        },
+        {
+          "file": "server.key",
+          "hash": "9541593503926998188"
+        },
+        {
+          "file": "src/.eslintrc.json",
+          "hash": "1366985201235974818"
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "6880513722212066549"
+        },
+        {
+          "file": "src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/app.component.spec.ts",
+          "hash": "2175687991644860055",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/app.component.stories.ts",
+          "hash": "5981607995709138942",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "2119165801575109004",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "src/app/app.config.ts",
+          "hash": "3438741377659395016",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@angular/common",
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "src/app/app.routes.ts",
+          "hash": "8728587326764383945",
+          "deps": [
+            "npm:@angular/router",
+            "lib"
+          ]
+        },
+        {
+          "file": "src/app/components/autoload/autoload.component.html",
+          "hash": "10581330171998364056"
+        },
+        {
+          "file": "src/app/components/autoload/autoload.component.scss",
+          "hash": "5147187818328364286"
+        },
+        {
+          "file": "src/app/components/autoload/autoload.component.spec.ts",
+          "hash": "4332201787410072763",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/autoload/autoload.component.stories.ts",
+          "hash": "2993256474893620510",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/components/autoload/autoload.component.ts",
+          "hash": "1369301840049948728",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:ngx-json-viewer-ng",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:ngx-mat-select-search"
+          ]
+        },
+        {
+          "file": "src/app/components/config/config.component.html",
+          "hash": "12355395048378412079"
+        },
+        {
+          "file": "src/app/components/config/config.component.scss",
+          "hash": "5147187818328364286"
+        },
+        {
+          "file": "src/app/components/config/config.component.spec.ts",
+          "hash": "7974528664526247972",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/config/config.component.stories.ts",
+          "hash": "727283089436591911",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/components/config/config.component.ts",
+          "hash": "17546415777233318488",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:ngx-json-viewer-ng",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "src/app/components/eightyfive/eightyfive.component.html",
+          "hash": "3648638885374730647"
+        },
+        {
+          "file": "src/app/components/eightyfive/eightyfive.component.scss",
+          "hash": "5147187818328364286"
+        },
+        {
+          "file": "src/app/components/eightyfive/eightyfive.component.spec.ts",
+          "hash": "8677492079565576435",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/eightyfive/eightyfive.component.stories.ts",
+          "hash": "2411897747130946287",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/components/eightyfive/eightyfive.component.ts",
+          "hash": "6812601872684360978",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:ngx-json-viewer-ng",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:ngx-mat-select-search"
+          ]
+        },
+        {
+          "file": "src/app/components/guide/guide.component.html",
+          "hash": "17707748893450453511"
+        },
+        {
+          "file": "src/app/components/guide/guide.component.scss",
+          "hash": "5147187818328364286"
+        },
+        {
+          "file": "src/app/components/guide/guide.component.spec.ts",
+          "hash": "13746171158805357465",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/guide/guide.component.stories.ts",
+          "hash": "18067156498347792435",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/components/guide/guide.component.ts",
+          "hash": "17504361175608789035",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:ngx-json-viewer-ng",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:ngx-mat-select-search",
+            "npm:@angular/common",
+            "npm:@angular/cdk",
+            "npm:file-saver"
+          ]
+        },
+        {
+          "file": "src/app/components/hotspot/hotspot.component.html",
+          "hash": "10581330171998364056"
+        },
+        {
+          "file": "src/app/components/hotspot/hotspot.component.scss",
+          "hash": "5147187818328364286"
+        },
+        {
+          "file": "src/app/components/hotspot/hotspot.component.spec.ts",
+          "hash": "1145094078651409608",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/hotspot/hotspot.component.stories.ts",
+          "hash": "15243545327014424778",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/components/hotspot/hotspot.component.ts",
+          "hash": "597067531280720678",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:ngx-json-viewer-ng",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:ngx-mat-select-search"
+          ]
+        },
+        {
+          "file": "src/app/components/view/view.component.css",
+          "hash": "1493976027035545314"
+        },
+        {
+          "file": "src/app/components/view/view.component.html",
+          "hash": "6691904474796793755"
+        },
+        {
+          "file": "src/app/components/view/view.component.spec.ts",
+          "hash": "8057762641829506489",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "src/app/components/view/view.component.ts",
+          "hash": "14636002706937873020",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:mermaid",
+            "npm:d3",
+            "npm:@angular/material",
+            "npm:file-saver"
+          ]
+        },
+        {
+          "file": "src/app/home/home.component.html",
+          "hash": "12829834138758143162"
+        },
+        {
+          "file": "src/app/home/home.component.scss",
+          "hash": "6244243096093100646"
+        },
+        {
+          "file": "src/app/home/home.component.stories.ts",
+          "hash": "7481007494221303130",
+          "deps": [
+            "npm:@storybook/angular",
+            "npm:@storybook/testing-library",
+            "npm:@storybook/jest"
+          ]
+        },
+        {
+          "file": "src/app/home/home.component.ts",
+          "hash": "1547661519090911216",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:@angular/material",
+            "npm:ngx-mat-select-search"
+          ]
+        },
+        {
+          "file": "src/app/utils/conditions.ts",
+          "hash": "10742558383494129346",
+          "deps": [
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "src/app/utils/constants.ts",
+          "hash": "16987789886927064180"
+        },
+        {
+          "file": "src/app/utils/filter.ts",
+          "hash": "5766351920274781350"
+        },
+        {
+          "file": "src/app/utils/utils.ts",
+          "hash": "10356377892053589807"
+        },
+        {
+          "file": "src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/favicon.ico",
+          "hash": "3988961587069885523"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "15026686462027556876"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "4927504514031276065",
+          "deps": [
+            "npm:@angular/platform-browser"
+          ]
+        },
+        {
+          "file": "src/proxy.conf.json",
+          "hash": "4127346978200660507"
+        },
+        {
+          "file": "src/services/api.service.ts",
+          "hash": "9528668971256519181",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "src/styles.scss",
+          "hash": "7627354116924961147"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "1898175647994978648"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "8951160183270769567"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "915587099324259401"
+        }
+      ],
+      "lib": [
+        {
+          "file": "projects/lib/README.md",
+          "hash": "17469629199042369700"
+        },
+        {
+          "file": "projects/lib/ng-package.json",
+          "hash": "8625173391733064859"
+        },
+        {
+          "file": "projects/lib/package.json",
+          "hash": "5489732949121558740",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:tslib"
+          ]
+        },
+        {
+          "file": "projects/lib/project.json",
+          "hash": "13059052279161758138"
+        },
+        {
+          "file": "projects/lib/src/lib/Component1/lib.component.ts",
+          "hash": "13071836052528321976",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/Component2/lib2.component.ts",
+          "hash": "9643200946664287479",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/lib.component.spec.ts",
+          "hash": "4878086326672578322",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/lib.component.ts",
+          "hash": "16954306127690331009",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/lib.service.spec.ts",
+          "hash": "6697488817238720269",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/lib.service.ts",
+          "hash": "13533733318290785634",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/lib/lib2.component.ts",
+          "hash": "18346482594579040990",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "projects/lib/src/public-api.ts",
+          "hash": "3747821760935275549"
+        },
+        {
+          "file": "projects/lib/tsconfig.lib.json",
+          "hash": "12550530176149154611"
+        },
+        {
+          "file": "projects/lib/tsconfig.lib.prod.json",
+          "hash": "6370393514234505645"
+        },
+        {
+          "file": "projects/lib/tsconfig.spec.json",
+          "hash": "17982272042776582306"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "7897155704633081707"
+}

@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://guidedlearning.oracle.com",
+      "secure": false
+    }
+  }

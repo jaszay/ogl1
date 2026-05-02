@@ -1,0 +1,40 @@
+<div>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <div class="w100">
+        <mat-tab-group>
+          <mat-tab label="Source">
+            <ngx-json-viewer [json]="_data()"></ngx-json-viewer>
+          </mat-tab>
+          <mat-tab label="Properties">
+            <div class="flex-g-30">
+              <div>
+                <form [formGroup]="form">
+                  <mat-form-field>
+                    <mat-label>Guides ({{ guides.length }})</mat-label>
+                    <mat-select formControlName="guides" #singleSelect>
+                      <mat-option>
+                        <ngx-mat-select-search
+                          formControlName="guideFilterCtrl"
+                        ></ngx-mat-select-search>
+                      </mat-option>
+                      @for (guide of filteredGuides | async; track guide) {
+                      <mat-option [value]="guide.apiName">{{
+                        guide.displayName
+                      }}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                  <div class="separator"></div>
+                </form>
+              </div>
+              <div class="w100">
+                <ngx-json-viewer [json]="reqs()"></ngx-json-viewer>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

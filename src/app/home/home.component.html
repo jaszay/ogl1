@@ -1,0 +1,117 @@
+<div>
+  <mat-grid-list cols="4">
+    <mat-grid-tile [colspan]="1">
+      <div>
+        <div class="separator"></div>
+        <div class="separator"></div>
+        <form [formGroup]="form">
+          <mat-slide-toggle formControlName="env">Development</mat-slide-toggle>
+          <div class="separator"></div>
+          <div class="separator"></div>
+          <mat-form-field>
+            <mat-label>AppId</mat-label>
+            <input
+              matInput
+              placeholder="Enter AppId..."
+              formControlName="appId"
+            />
+          </mat-form-field>
+          <div class="separator"></div>
+          <mat-form-field>
+            <mat-label>Tenancy</mat-label>
+            <mat-select formControlName="tenancy">
+              @for (tenancy of _tenancies; track tenancy) {
+              <mat-option [value]="tenancy.id">{{ tenancy.name }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <div class="separator"></div>
+          <mat-form-field>
+            <mat-label>Guides ({{ guides.length }})</mat-label>
+            <mat-select formControlName="guides" #singleSelect>
+              <mat-option>
+                <ngx-mat-select-search
+                  formControlName="guideFilterCtrl"
+                ></ngx-mat-select-search>
+              </mat-option>
+              @for (guide of filteredGuides | async; track guide) {
+              <mat-option [value]="guide.apiName">{{
+                guide.displayName
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <div class="separator"></div>
+          <div>
+            <button mat-button (click)="start()" title="Start" id="start-btn">Start</button>
+          </div>
+          <div class="separator"></div>
+          <div>
+            <button mat-button (click)="reload()">Reload</button>
+          </div>
+          <!--<form [formGroup]="form_source">
+            <mat-radio-group class="flex-v" aria-label="Select an option" formControlName="source_selected">
+                <mat-radio-button value="g">Guide</mat-radio-button>
+                <mat-radio-button value="a">Autoload</mat-radio-button>
+                <mat-radio-button value="8">Widget</mat-radio-button>
+                <mat-radio-button value="h">Hotspot</mat-radio-button>
+            </mat-radio-group>
+          </form>-->
+        </form>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div [style]="{ width: '1200px' }">
+        <mat-tab-group>
+          <mat-tab label="Widget">
+            <app-eightyfive [data]="eightyfivegrcrxsh"></app-eightyfive>
+          </mat-tab>
+          <mat-tab label="Autoload">
+            <app-autoload [data]="autoload" [extra]="guides"></app-autoload>
+          </mat-tab>
+          <mat-tab label="Hotspot">
+            <app-hotspot [data]="hotspot" [extra]="guides"></app-hotspot>
+          </mat-tab>
+          <mat-tab label="Config">
+            <app-config [data]="cconfig"></app-config>
+          </mat-tab>
+          <mat-tab label="Guide">
+            <app-guide [data]="guide"></app-guide>
+          </mat-tab>
+          <mat-tab label="View">
+            <app-view [data]="guide"></app-view>
+          </mat-tab>
+          <mat-tab label="Embed">
+            <mat-grid-list cols="4">
+              <mat-grid-tile [colspan]="1">
+                <div>
+                  <div class="separator"></div>
+                  <div class="separator"></div>
+                  <button mat-button (click)="loadWidget()">Load Widget</button>
+                  <div class="separator"></div>
+                  <div class="separator"></div>
+                  <button mat-button (click)="loadState()">State</button>
+                </div>
+              </mat-grid-tile>
+              @if(true) {
+              <mat-grid-tile [colspan]="1">
+                <div>
+                  <div class="separator"></div>
+                  <div class="separator"></div>
+                  <div>Help</div>
+                  <div class="dropdown">
+                    <div class="dropdown-content" id="ir-GuideContainer"></div>
+                    <div class="dropdown-content" id="eesWalkthroughContainer"></div>
+                    <div class="dropdown-content" id="cocoWalkthroughContainer"></div>
+                    <div class="dropdown-content" id="myContainer"></div>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              }
+            </mat-grid-list>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

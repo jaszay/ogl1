@@ -1,0 +1,172 @@
+{
+    "ignorePatterns": ["!**/*"],
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "extends": [
+          "plugin:@nx/angular",
+          "plugin:@angular-eslint/template/process-inline-templates"
+        ],
+        "parserOptions": {
+          "project": [
+            "tsconfig.json"
+          ]
+        },
+        "rules": {
+          "@angular-eslint/directive-selector": [
+            "error",
+            {
+              "type": "attribute",
+              "style": "camelCase"
+            }
+          ],
+          "@angular-eslint/component-selector": [
+            "error",
+            {
+              "type": "element",
+              "style": "kebab-case"
+            }
+          ],
+          "@angular-eslint/component-max-inline-declarations": "error",
+          "@angular-eslint/no-attribute-decorator": "error",
+          "@angular-eslint/no-forward-ref": "error",
+          "@angular-eslint/no-lifecycle-call": "error",
+          "@angular-eslint/no-pipe-impure": "error",
+          "@angular-eslint/no-queries-metadata-property": "error",
+          "@angular-eslint/prefer-output-readonly": "error",
+          "@angular-eslint/use-component-view-encapsulation": "error",
+          "@typescript-eslint/array-type": [
+            "error",
+            {
+              "default": "array"
+            }
+          ],
+          "@typescript-eslint/await-thenable": "error",
+          "@typescript-eslint/ban-ts-comment": "error",
+          "@typescript-eslint/consistent-type-definitions": "error",
+          "@typescript-eslint/dot-notation": "off",
+          "@typescript-eslint/explicit-member-accessibility": [
+            "error",
+            {
+              "accessibility": "no-public"
+            }
+          ],
+          "@typescript-eslint/member-delimiter-style": "off",
+          "@typescript-eslint/member-ordering": "warn", // less hint errors (default is error, reomve it)
+          "@typescript-eslint/no-empty-function": "error",
+          "@typescript-eslint/no-extraneous-class": "error",
+          "@typescript-eslint/no-floating-promises": "error",
+          "@typescript-eslint/no-for-in-array": "error",
+          "@typescript-eslint/no-inferrable-types": "error",
+          // "@typescript-eslint/no-param-reassign": "error", // not found
+          "@typescript-eslint/no-require-imports": "error",
+          "@typescript-eslint/no-this-alias": "error",
+          "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+          "@typescript-eslint/no-unnecessary-type-arguments": "error",
+          "@typescript-eslint/no-unnecessary-type-assertion": "error",
+          "@typescript-eslint/no-unused-expressions": [
+            "error",
+            {
+              "allowShortCircuit": true
+            }
+          ],
+          "@typescript-eslint/no-non-null-assertion": "off",
+          "@typescript-eslint/prefer-readonly": "error",
+          "@typescript-eslint/promise-function-async": "error",
+          "@typescript-eslint/require-await": "error",
+          "@typescript-eslint/restrict-plus-operands": "error",
+          "@typescript-eslint/semi": "off",
+          // "@typescript-eslint/strict-boolean-expressions": "error", // ESLint: This rule requires the `strictNullChecks` compiler option to be turned on to function correctly.
+          "@typescript-eslint/triple-slash-reference": "error",
+          "@typescript-eslint/unbound-method": "error",
+          "arrow-body-style": ["error", "as-needed"],
+          "arrow-parens": ["error", "as-needed"],
+          // "class-methods-use-this": "error",
+          "class-methods-use-this": "warn", // less hint errors
+          "comma-dangle": "warn",
+          "complexity": [
+            "error",
+            {
+              "max": 20
+            }
+          ],
+          "default-case": "error",
+          "import/no-default-export": "error",
+          //"import/no-extraneous-dependencies": "error",
+          "import/no-unassigned-import": "error",
+          "import/order": "warn",
+          // "max-lines": ["error", 400],
+          "max-lines": ["error", 3000], // less hint errors
+          "newline-per-chained-call": "error",
+          "no-duplicate-case": "error",
+          "no-duplicate-imports": "error",
+          "no-empty": "error",
+          "no-extra-bind": "error",
+          "no-invalid-this": "warn",
+          "no-multiple-empty-lines": [
+            "error",
+            {
+              "max": 1
+            }
+          ],
+          "no-new-func": "error",
+          "no-plusplus": "error",
+          "no-redeclare": "error",
+          "no-restricted-syntax": ["error", "ForInStatement"],
+          "no-return-await": "error",
+          "no-sequences": "error",
+          // "no-shadow": ["error", { "hoist": "never" }],
+          "no-shadow": "off",
+          "@typescript-eslint/no-shadow": ["error", { "ignoreTypeValueShadow": true }],
+          "no-sparse-arrays": "error",
+          "no-tabs": ["error", {"allowIndentationTabs": true}],
+          "no-template-curly-in-string": "error",
+          // "no-useless-constructor": "error",
+          "no-useless-constructor": "warn", // less hint errors
+          "no-void": "error",
+          "padding-line-between-statements": [
+            "error",
+            {
+              "blankLine": "always",
+              "prev": "*",
+              "next": "return"
+            }
+          ],
+          "prefer-object-spread": "error",
+          "prefer-template": "error",
+          "quote-props": ["error", "as-needed"],
+          "space-in-parens": ["error", "never"],
+          "yoda": "error"
+        }
+      },
+      {
+        "files": ["*.html"],
+        "extends": ["plugin:@nx/angular-template"],
+        "rules": {
+          "@angular-eslint/template/prefer-control-flow": "error"
+        }
+      },
+      {
+        "files": ["*.json"],
+        "parser": "jsonc-eslint-parser",
+        "rules": {
+          "@nx/dependency-checks": [
+            "error",
+            {
+              "buildTargets": ["build"],
+              "checkMissingDependencies": true,
+              "checkObsoleteDependencies": true,
+              "checkVersionMismatches": true,
+              "ignoredDependencies": [
+                "@angular/cdk",
+                "rxjs",
+                "tslib",
+                "zone.js"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
