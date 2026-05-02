@@ -1,4 +1,4 @@
-import { Component, DestroyRef, Input, OnInit, inject } from '@angular/core';
+import { Component, DestroyRef, Input, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxJsonViewerModule } from 'ngx-json-viewer-ng';
@@ -27,6 +27,7 @@ import { saveAs } from 'file-saver'
 })
 export class GuideComponent implements OnInit {
   private destroyRef = inject(DestroyRef);
+  private cdr = inject(ChangeDetectorRef);
   @Input() set data(value:any) {
     this._data = deepCopyObject(value)
     this.steps = this._data?.structure?.steps || []
@@ -64,7 +65,10 @@ export class GuideComponent implements OnInit {
         const screenshotUrl = this.step.action.screenshot?.url
         if (screenshotUrl) {
           this.getScreenshot(screenshotUrl)
-          .subscribe(i => this.screenshot = i.screenshot)
+          .subscribe(i => {
+            this.screenshot = i.screenshot
+            this.cdr.markForCheck();
+          })
         }
     })
   }
@@ -81,6 +85,7 @@ export class GuideComponent implements OnInit {
 
   updateStepProperties = () => {
     this._steps.patchValue(this.steps[0]?.uid || '')
+    this.cdr.markForCheck();
     //this.step = {}
   }
   

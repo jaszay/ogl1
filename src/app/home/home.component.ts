@@ -1,5 +1,5 @@
 import { CommonModule, JsonPipe } from '@angular/common';
-import { Component, ViewChild, inject, DestroyRef, ɵɵdeferEnableTimerScheduling } from '@angular/core';
+import { Component, ViewChild, inject, DestroyRef, ChangeDetectorRef, ɵɵdeferEnableTimerScheduling } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   ReplaySubject,
@@ -74,7 +74,7 @@ declare global {
 })
 export class HomeComponent {
   _tenancies = tenancies
-  guides: any = ''; // IGuide[] = []
+  guides: any = []; // IGuide[] = []
 
   public filteredGuides: ReplaySubject<any /*IGuide[]*/> =
     new ReplaySubject<any /*IGuide[]*/>(1);
@@ -96,6 +96,7 @@ export class HomeComponent {
   @ViewChild('singleSelect', { static: true }) singleSelect!: MatSelect;
 
   private destroyRef = inject(DestroyRef);
+  private cdr = inject(ChangeDetectorRef);
 
   guide: any = {};
   autoload: any = {};
@@ -178,10 +179,12 @@ export class HomeComponent {
             eightyfive: this.eightyfivegrcrxsh,
             autoload: this.autoload,
           };
+          this.cdr.markForCheck();
         } else if (k.error) {
 
           this.showSnackBar(k.errormsg);
           this.guide = k;
+          this.cdr.markForCheck();
         }
       });
   };
@@ -194,10 +197,22 @@ export class HomeComponent {
         this.guides = this.guides?.sort((a: any, b: any) => a?.displayName?.toLowerCase() > b?.displayName?.toLowerCase() ? 1 : -1)
         console.log('ogl-viewer', '_getGuides', this.guides)
         this.filteredGuides.next(this.guides.slice())
+        
+        // Clear guide selection if the previously selected guide is not in the new list
+        const currentGuide = this.form.controls.guides.value;
+        if (currentGuide && !this.guides.some((g: any) => g.apiName === currentGuide)) {
+          this.form.controls.guides.reset();
+          this.form.controls.guideFilterCtrl.reset();
+        }
+        this.cdr.markForCheck();
       } else if (i.error) {
 
         this.showSnackBar(i.errormsg)
         this.guides = []
+        // Clear guide selection on error
+        this.form.controls.guides.reset();
+        this.form.controls.guideFilterCtrl.reset();
+        this.cdr.markForCheck();
       }
     });
   };
@@ -218,6 +233,7 @@ export class HomeComponent {
       this.eightyfivegrcrxsh = r85grcrxsh.data;
       this.hotspot = rhotspot.data;
       this.cconfig = rconfig;
+      this.cdr.markForCheck();
     });
   };
 
