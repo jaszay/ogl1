@@ -178,6 +178,7 @@ export class HomeComponent {
             guides: this.guides,
             eightyfive: this.eightyfivegrcrxsh,
             autoload: this.autoload,
+            hotspot: this.hotspot,
           };
           this.cdr.markForCheck();
         } else if (k.error) {
@@ -206,7 +207,7 @@ export class HomeComponent {
         }
         this.cdr.markForCheck();
       } else if (i.error) {
-
+        console.log('ogl-viewer', '_getGuides', i)
         this.showSnackBar(i.errormsg)
         this.guides = []
         // Clear guide selection on error
@@ -262,8 +263,7 @@ export class HomeComponent {
     this.form.controls.appId.patchValue('DN5rHfSdTgCaTOil8GaBTw');
     this.form.controls.tenancy.patchValue('namer');
     this.form.controls.env.patchValue(true);
-    // setTimeout(() => this.form.controls.guides.patchValue('w0sfn1ih'), 500);
-    setTimeout(() => this.form.controls.guides.patchValue('d8pi5wyu'), 500);
+    setTimeout(() => this.form.controls.guides.patchValue('d8pi5wyu'), 1000);
   }
 
   clean = () => {

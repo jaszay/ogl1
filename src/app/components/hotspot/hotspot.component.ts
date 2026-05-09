@@ -65,7 +65,7 @@ export class HotspotComponent {
     effect(() => { 
       const data = this._data()
       const extra: any[] = this._extra()
-      console.log("effect", "data", data, "extra", extra)
+      console.log("hotspot", "effect", "data", data, "extra", extra)
 
       if (data && Object.keys(data).length && extra.length) {
         this.guides = this.guides.map(i => ({ 

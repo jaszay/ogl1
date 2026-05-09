@@ -117,8 +117,18 @@ export class GuideComponent implements OnInit {
     return preReqs || []
   }
 
+  getPreReqFromHotspot = () => {
+    // get guide condition from hotspot
+    let  preReqs = this.extra?.hotspot?.structure?.steps
+    .find((i: any) => i.id === 'hotspot' && i.uid === this.extra?.apiName)?.preReqs
+
+    console.log('getPreReqFromHotspot', preReqs)
+
+    return preReqs || []
+  }
+
   getPreReq = () => {
-    this.extra.preReqs = [...this.getPreReqFromWidget(), ...this.getPreReqFromAutoload()]
+    this.extra.preReqs = [...this.getPreReqFromWidget(), ...this.getPreReqFromAutoload(), ...this.getPreReqFromHotspot()]
   }
 
   getConditions = (value: any) => {

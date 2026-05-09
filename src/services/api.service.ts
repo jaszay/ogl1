@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, of, map } from 'rxjs';
 import { IConfig } from '../app/utils/constants';
 
 @Injectable({ providedIn: 'root' })
@@ -23,7 +23,7 @@ export class ApiService {
   getConfig = () => this.config;
 
   getGuides = (params?: string): Observable<any> =>
-    this.getApiWithUrl(
+    this.getApiWithUrlJsonResponse(
       `${this.config.url}/player/latest/api/scenario/list/${this.config.appId}/`,
       params
     );
@@ -86,5 +86,33 @@ export class ApiService {
     return this.http
       .get<any>(_url)
       .pipe(catchError(error => of(error)));
+  };
+
+  getApiWithUrlJsonResponse = (url: string, params?: any) => {
+    const _url = this.getUrlFromParams(url, params)
+
+    return this.http
+      .get(_url, { responseType: 'text' })
+      .pipe(
+        map(response => {
+          if (typeof response === 'string') {
+            if (response.startsWith('ng_jsonp_callback_')) {
+              const match = response.match(/ng_jsonp_callback_\d+\((.*)\)/);
+              if (match) {
+                return JSON.parse(match[1]);
+              }
+            } else {
+              // Try to parse as JSON
+              try {
+                return JSON.parse(response);
+              } catch {
+                return response;
+              }
+            }
+          }
+          return response;
+        }),
+        catchError(error => of(error))
+      );
   };
 }
